@@ -1,0 +1,11 @@
+db:
+  image:mongo
+  ports:-"19755":"19755"
+  restart:always
+  web:
+  build: .
+  volumes: -./:/app
+  ports:- "4003:4003"
+ links:
+  -db
+  command:nodemon /app/app.js
